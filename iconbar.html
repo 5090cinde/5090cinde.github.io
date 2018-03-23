@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="iconbar.css">
+</head>
+<div id="navbar">
+  <a href="iconbar.html">home</a>
+  <a href="materialen.html">materialen</a>
+  <a href="overons.html">over ons </a>
+    <a href="videouitleg.html">video uitleg</a>
+    <a href="verslag.html">verslag</a>
+</div>
+<br></br>
+<br></br>
+<div class="parallax"></div>
+
+<div style="height:1000px;background-color:white;font-size:36px; text-align: center;">
+Wil je een rc auto maken? Dan ben je bij het juiste adress, want wij gaan je leren hoe!
+</div>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-500px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+
+</body>
+</html>

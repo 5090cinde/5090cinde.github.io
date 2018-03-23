@@ -1,0 +1,96 @@
+!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="iconbar.css">
+    <title>homepage/materialen</title>
+  </head>
+  <body>
+    <div id="navbar.a">
+      <a href="iconbar.html">home</a>
+      <a href="materialen.html">materialen</a>
+      <a href="overons.html">over ons </a>
+        <a href="videouitleg.html">video uitleg</a>
+        <a href="verslag.html">verslag</a>
+    </div>
+    <br></br>
+    <br></br>
+    <div class="parallax"></div>
+
+    <div style="height:1000px;background-color:white;font-size:36px; text-align: center;">
+        <h1> Materialen </h1>
+        <h2> Voor de rc auto heb je deze materialen nodig: </h2>
+      <p> -  Arduino Lilypad <br> - Accelerometer  <br> - RF 433 Module <br> - HT12E and HT12D <br> - Motor driver L293DNE <br> - BO Motor and Wheels <br> - Prototyping Board <br> - Battery etc. </br></br></br></br></br></br></br></p>
+
+
+      <h1> Code </h1>
+      <h2> De code voor de controler: </h2>
+      <p> let x = 0 <br>
+radio.setGroup(0) <br>
+radio.setTransmitPower(7) <br>
+basic.forever(() => { <br>
+   x = input.acceleration(Dimension.X) <br>
+   if (input.buttonIsPressed(Button.AB)) { <br>
+     radio.sendNumber(0)<br>
+   } else if (input.buttonIsPressed(Button.A)) {<br>
+       radio.sendNumber(1)<br>
+   } else if (input.buttonIsPressed(Button.B)) {<br>
+       radio.sendNumber(2)<br>
+   } else if (x < 0) {<br>
+       radio.sendNumber(3)<br>
+   } else {<br>
+       radio.sendNumber(4)<br>
+   }<br>
+})<br>
+
+</p>
+</br></br>
+  <h2> De code voor de motor: </h2>
+  <p>let Recieved = 0<br>
+radio.onDataPacketReceived( ({ receivedNumber }) =>  {<br>
+   Recieved = receivedNumber<br>
+})<br>
+radio.setGroup(0)<br>
+Recieved = 0<br>
+basic.forever(() => {<br>
+   if (Recieved == 0) {<br>
+       pins.analogWritePin(AnalogPin.P0, 0)<br>
+       pins.analogWritePin(AnalogPin.P1, 0)<br>
+   } else if (Recieved == 1) {<br>
+       pins.analogWritePin(AnalogPin.P0, 1000)<br>
+       pins.analogWritePin(AnalogPin.P1, 1000)<br>
+   } else if (Recieved == 2) {<br>
+       pins.analogWritePin(AnalogPin.P0, 100)<br>
+       pins.analogWritePin(AnalogPin.P1, 100)<br>
+   } else if (Recieved == 3) {<br>
+       pins.analogWritePin(AnalogPin.P0, 100)<br>
+       pins.analogWritePin(AnalogPin.P1, 1000)<br>
+   } else if (Recieved == 4) {<br>
+       pins.analogWritePin(AnalogPin.P0, 1000)<br>
+       pins.analogWritePin(AnalogPin.P1, 100)<br>
+   }<br>
+})
+</p>
+</div>
+
+
+
+
+
+
+    <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-500px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+    </script>
+
+
+  </body>
+</html>

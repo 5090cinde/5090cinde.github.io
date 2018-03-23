@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="overons.css">
+  <title> homepage/over ons </title>
+  </head>
+  <body>
+    <div id="navbar">
+      <a href="iconbar.html">home</a>
+      <a href="materialen.html">materialen</a>
+      <a href="overons.html">over ons </a>
+        <a href="videouitleg.html">video uitleg</a>
+        <a href="verslag.html">verslag</a>
+    </div>
+    <br></br>
+    <br></br>
+    <div class="parallax"></div>
+
+    <div style="height:1000px;background-color:white;font-size:36px;">
+      <h1> Over ons </h1>
+      <h2> Wij zijn the violent tigers sinds 2017 </h2>
+      <p> Hallo, wij zijn een groep educatieve studenten met de naam violent tigers.
+      <br> De informatica zit in ons DNA. Het stroomt door onze aderen. Met die mindset bedenken, ontwerpen en realiseren we onze projecten. </br></p>
+      <br></br>
+      <h2> We zagen de hype al aankomen </h2>
+      <p> Tegenwoordig raken volwassen en kinderen snel uitgekeken op hun speeltjes, <br> omdat ze elke keer hetzelfde krijgen er worden geen nieuwe ideeen op de markt gebracht.<br> Daarvoor hebben wij een nieuw autotje gemaakt doe je kan besturen met je hand. </br></br></p>
+      <br></br>
+      <h2> Maar sommige zijn 'Game changers'......</h2>
+      <p> Deze rc auto is nog nooit in de winkels gezien en JIJ kan hem ook maken! </p>
+    </div>
+
+    <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-500px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+    </script>
+
+  </body>
+</html>
